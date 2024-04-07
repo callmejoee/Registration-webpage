@@ -1,51 +1,22 @@
-
 <!DOCTYPE html>
-<html>
-    <head>
-        <style>
-            body {
-                margin: 0px;
-                padding: 0px;
-            }
-            footer {
-                background-color: black;
-                color: white;
-                text-align: center;
-                position: relative;
-                width: 100%;
-                bottom: 0;
-                font-size: 10px;
-                height: 100px;
-                overflow: hidden;
-            }
-            .footer-text {
-                /*    display: flex;*/
-                /*    flex-direction: row;*/
-                /*    align-items: center;*/
-                /*    justify-content: space-around;*/
-
-            }
-
-        </style>
-    </head>
-    <body>
-        <footer>
-            <div class="container-footer">
-                <div class="footer-text">
-                    <div class="contact">
-                        <h3>Contact</h3>
-                        <p>Email: info@example.com</p>
-                        <p>Phone: 123-456-7890</p>
-                    </div>
-                    <div class="copyright">
-                        <?php
-                        echo "<p>&copy; 2021-".date("Y") . " FCAI-CU. All Rights Reserved.</p>";
-                        ?>
-                    </div>
-
-                </div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+ 
+</head>
+<body>
+<diV class="footer">
+            <div class="icons">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+                <i class="fa fa-google" aria-hidden="true"></i>
+                <i class="fa fa-github" aria-hidden="true"></i>
             </div>
-        </footer>
-    </body>
-</html>
-
+            <p>Copy Right 2024 © By <a href="#">FCAI</a> All Rights Reserved</p>
+        </diV>
+</body>
