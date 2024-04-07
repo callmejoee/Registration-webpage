@@ -1,74 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title><?php echo "Registration - " . date("Y"); ?></title>
-    <style>
-        body {
-            margin: 0px;
-            padding: 0px;
-        }
-        h1 {
-            margin: 10px;
-            padding: 0px;
-            text-align: center;
-        }
-        header {
-            background-color: black;
-            color: white;
-            position: relative;
-            width: 100%;
-            top: 0;
-            font-size: 10px;
-            height: 50px;
-            overflow: hidden;
-            display: flex;
-
-        }
-        nav {
-            margin-left: auto;
-            float: left;
-        }
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            font-size: 20px;
-        }
-
-        nav ul li {
-            float: left;
-        }
-
-        nav ul li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
-
-        nav ul li a:hover {
-            background-color: #ffffff;
-            color: black;
-        }
-
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+ 
 </head>
 <body>
+<nav class="navbar navbar-expand-lg ">
+        <div class="container z-3">
+            <a class="navbar-brand  d-flex justify-content-center align-items-center" href="#">
+               
+                <img src="WhatsApp Image 2024-04-06 at 22.59.10_aeffbbd7.jpg" alt="Logo" width="100" class="d-inline-block align-text-top">
+            
 
-<header>
-    <h1><?php echo "The Registration Page for " . date("Y")?></h1>
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
+              </a>
+              <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon "></span>
+              </button>
+          <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto   ">
+              <li class="nav-item me-4">
+                <a class="nav-link active " aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item me-4">
+                <a class="nav-link active   " aria-current="page" href="#">About</a>
+              </li>
+             
+              <li class="nav-item me-4">
+                <a class="nav-link active   " aria-current="page" href="#">Servcies</a>
+              </li>
+              <li class="nav-item me-4">
+                <a class="nav-link active   " aria-current="page" href="#">Contact</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
     </nav>
-</header>
-
-
-
 </body>
 </html>
