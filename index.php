@@ -18,7 +18,7 @@
             <h1 class="basecolor text-center py-3   px-3 ">Registration Form</h1>
 
           
-            <form method="POST" action="" id="form" enctype="multipart/form-data" name="my-form">
+            <form method="POST" action="DB_Ops.php" id="form" enctype="multipart/form-data" name="my-form">
                     <div class="row d-flex flex-wrap justify-content-center ">
                         <div class="col-md-6 mt-3 ">
                             <div class="form-floating mb-3">
@@ -92,7 +92,7 @@
                     
 
                         <div class="input-group my-3">
-                            <input type="file" required class="form-control" name="image" accept="image/*" id="img_id"
+                            <input type="file" required class="form-control" name="user_image" accept="image/*" id="img_id"
                                 data-bs-toggle="tooltip" data-bs-placement="bottom"
                                 title="Only Image Extensions Available">
                         </div>
