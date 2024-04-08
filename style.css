@@ -97,3 +97,11 @@ width :100%;
         color: #ece9e9;
         font-family: 'Source Sans Pro', sans-serif;;
     }
+
+
+ .errors {
+        display: inline;
+        color: red;
+        margin: auto;
+        font-weight: bold;
+      }
