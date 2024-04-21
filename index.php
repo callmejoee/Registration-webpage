@@ -107,11 +107,21 @@
 
                         
                         <div class="col-md-6 mt-3">
-                        <button onclick="fetchActorsBornToday()" id="getActorDetailsBtn" class="btn btn-primary">Get Actors Born on Your Birthday</button> 
-                        <div id="actorDetails" class="mt-3">
-                        <p id="loadingMessage" style="display: none;">Loading...</p>
+                        <button type="button" id="getActorBirthdaysBtn" class="mb-3">Get Actors Born on Your Birthday</button> 
                         </div>
-                        </div>
+                        <br><br>
+                        <div class="birthdays">
+                       <div class="Bheader" style="background-color:aliceblue;">
+                       <div >Actors Born at your birthday:</div>
+                       </div>
+                       <br>
+                      <div class="Bbody">
+                     <div id="names" style="display: flex; flex-wrap: nowrap; overflow-x: auto;">
+                    </div>
+                </div>
+              </div>
+             </div>
+                        
 
                         <div class="input-group my-3">
                             <input type="file" required class="form-control" name="user_image" accept="image/*" id="img_id"

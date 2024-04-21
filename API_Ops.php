@@ -31,13 +31,13 @@ if ($err) {
         $response = curl_exec($curl);
         $err = curl_error($curl);
         if ($err) {
-            echo json_encode(["error" => "cURL Error: " . $err]); // Output error in JSON format
+            echo json_encode(["error" => "cURL Error: " . $err]); 
         } else {
             $name = json_decode($response)->name;
             $actors[] = $name;
         }
     }
-    header('Content-Type: application/json');
+    
     echo json_encode($actors);
 }
 
