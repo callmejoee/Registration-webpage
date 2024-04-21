@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
- 
+    
 </head>
 <body>
     <?php include("header.php"); ?>
@@ -101,10 +101,17 @@
                             <label for="bd_id">birthdate</label>
                                 <input type="date" required class="form-control" id="bd_id" name="birthdate"
                                     data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="bottom"
-                                    title="Valid date between : <br> 1900-2024">
+                                    title="Valid date between : <br> 1900-2024">   
                             </div>
                         </div>
-                    
+
+                        
+                        <div class="col-md-6 mt-3">
+                        <button onclick="fetchActorsBornToday()" id="getActorDetailsBtn" class="btn btn-primary">Get Actors Born on Your Birthday</button> 
+                        <div id="actorDetails" class="mt-3">
+                        <p id="loadingMessage" style="display: none;">Loading...</p>
+                        </div>
+                        </div>
 
                         <div class="input-group my-3">
                             <input type="file" required class="form-control" name="user_image" accept="image/*" id="img_id"
@@ -120,10 +127,13 @@
                 </form>
         </div>
         <?php include("footer.php"); ?>
-        <script src="bootstrap.bundle.min.js"></script>
+        
+
+    <script src="bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="main.js"></script>
     <script src="Validate.js"></script>
+    <script src="main3.js"></script>
 
     
 </body>
