@@ -1,51 +1,89 @@
 <?php
-$birthdate = $_POST['birthdate'] ?? date("Y-m-d"); 
 
-$curl = curl_init();
+$API_KEY = "906f85c445msh8de16a4b7cb624dp1e8200jsna6657474b57f";
 
-curl_setopt_array($curl, [
-    CURLOPT_URL => "https://online-movie-database.p.rapidapi.com/actors/list-born-today?month=" . date("m", strtotime($birthdate)) . "&day=" . date("d", strtotime($birthdate)),
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_FOLLOWLOCATION => true,
-    CURLOPT_ENCODING => "",
-    CURLOPT_MAXREDIRS => 10,
-    CURLOPT_TIMEOUT => 30,
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    CURLOPT_CUSTOMREQUEST => "GET",
-    CURLOPT_HTTPHEADER => [
-        "X-RapidAPI-Host: online-movie-database.p.rapidapi.com",
-        "X-RapidAPI-Key: 5e5dd03998msh835196ce43a9cacp15e7c5jsnf9583b16acd4"
-    ],
-]);
+function getBirthdays($Month, $Day, $API_KEY)
+{
+    $curl = curl_init();
 
-$response = curl_exec($curl);
-$err = curl_error($curl);
-$actors = [];
+    curl_setopt_array($curl, [
+        CURLOPT_URL => "https://online-movie-database.p.rapidapi.com/actors/list-born-today?month=$Month&day=$Day",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => [
+            "X-RapidAPI-Host: online-movie-database.p.rapidapi.com",
+            "X-RapidAPI-Key: $API_KEY"
+        ],
+    ]);
 
-if ($err) {
-    echo json_encode(["error" => "cURL Error: " . $err]); 
-} else {
-    foreach (json_decode($response) as $value) {
-        $nconst = explode("/", $value)[2];
-        curl_setopt($curl, CURLOPT_URL, "https://online-movie-database.p.rapidapi.com/actors/get-bio?nconst=$nconst");
-        $response = curl_exec($curl);
-        $err = curl_error($curl);
-        if ($err) {
-            echo json_encode(["error" => "cURL Error: " . $err]); 
-        } else {
-            $name = json_decode($response)->name;
-            $actors[] = $name;
-        }
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+
+    curl_close($curl);
+
+    if ($err) {
+        echo  "cURL Error #:" . $err;;
+    } else {
+        return $response;
     }
-    
-    echo json_encode($actors);
 }
 
-curl_close($curl);
+function getBio($nconst, $API_KEY)
+{
+    $curl = curl_init();
+
+    curl_setopt_array($curl, [
+        CURLOPT_URL => "https://online-movie-database.p.rapidapi.com/actors/get-bio?nconst=$nconst",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => [
+            "X-RapidAPI-Host: online-movie-database.p.rapidapi.com",
+            "X-RapidAPI-Key: $API_KEY"
+        ],
+    ]);
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+
+    curl_close($curl);
+
+    if ($err) {
+        echo "cURL Error #:" . $err;
+    } else {
+        return json_decode($response, true);
+    }
+}
+
+$actors1 = getBirthdays($_GET['month'], $_GET['day'], $API_KEY);
+
+preg_match_all('/\/name\/([a-z0-9]+)/i', $actors1, $matches);
+
+$response = $matches[1];
+
+$res = array("actors" => array());
+
+$counter = 0; 
+
+foreach ($response as $id) {
+    if ($counter == 5) break; 
+
+    $actorData = getBio($id, $API_KEY);
+    if ($actorData && isset($actorData['name'])) {
+        $res['actors'][] = array(
+            'name' => $actorData['name']
+        );
+        $counter++;
+    }
+}
+echo json_encode($res);
+
 ?>
-
-
-
-
-
 
